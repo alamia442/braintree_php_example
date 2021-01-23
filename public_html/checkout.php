@@ -6,6 +6,16 @@ $nonce = $_POST["payment_method_nonce"];
 
 $result = $gateway->transaction()->sale([
     'amount' => $amount,
+    'address' => ['customerId'        => '131866',
+                  'firstName'         => 'Jenna',
+                  'lastName'          => 'Smith',
+                  'company'           => 'Braintree',
+                  'streetAddress'     => '1 E Main St',
+                  'locality'          => 'Chicago',
+                  'region'            => 'Illinois',
+                  'postalCode'        => '60622',
+                  'countryCodeAlpha2' => 'US'
+    ],
     'paymentMethodNonce' => $nonce,
     'options' => [
         'submitForSettlement' => true
